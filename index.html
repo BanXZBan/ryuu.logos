@@ -1,173 +1,970 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VallzXWeb - Grow A Garden Store</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      background: linear-gradient(135deg, #2b2d42, #8d99ae);
-      color: #edf2f4;
-      transition: background 0.6s ease;
-    }
-
-    header {
-      padding: 20px;
-      text-align: center;
-      background-color: rgba(0, 0, 0, 0.6);
-      animation: fadeIn 1.5s ease-in;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 10px;
-    }
-
-    nav button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .dark-btn {
-      background-color: #2b2d42;
-      color: #edf2f4;
-    }
-
-    .white-btn {
-      background-color: #edf2f4;
-      color: #2b2d42;
-    }
-
-    nav button:hover {
-      transform: scale(1.05);
-    }
-
-    section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-      animation: slideIn 1s ease-out;
-    }
-
-    .product {
-      background: rgba(255, 255, 255, 0.1);
-      margin: 20px 0;
-      padding: 20px;
-      border-radius: 12px;
-    }
-
-    .testimonials {
-      margin-top: 50px;
-    }
-
-    .testimonial {
-      background: rgba(0, 0, 0, 0.3);
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .contact {
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    .contact a {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 24px;
-      background-color: #25d366;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: transform 0.3s;
-    }
-
-    .contact a:hover {
-      transform: scale(1.05);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes slideIn {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryuu.Logos - Jasa Desain Grafis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff0000;
+            --primary-dark: #cc0000;
+            --primary-light: #ff3333;
+            --secondary-color: #1a1a1a;
+            --accent-color: #ff4444;
+            --text-color: #ffffff;
+            --light-text: #ffffff;
+            --bg-dark: #0a0a0a;
+            --bg-light: #1a1a1a;
+            --shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+            --gradient: linear-gradient(135deg, #ff0000 0%, #990000 100%);
+            --neon-glow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--secondary-color);
+            color: var(--light-text);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            animation: fadeIn 1s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+            text-shadow: var(--neon-glow);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+            text-shadow: var(--neon-glow);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), var(--bg-dark);
+            color: var(--light-text);
+            padding: 150px 0 100px;
+            text-align: center;
+            animation: fadeIn 1.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, var(--bg-dark) 70%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+            animation: slideUp 1s ease;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 900;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+        
+        .hero h1 span {
+            color: var(--primary-color);
+            text-shadow: var(--neon-glow);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            animation: slideUp 1.2s ease;
+            color: #cccccc;
+        }
+        
+        .price-tag {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 24px;
+            margin: 10px 0;
+            animation: pulse 2s infinite;
+            box-shadow: var(--shadow);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--gradient);
+            color: var(--light-text);
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            animation: slideUp 1.4s ease;
+            box-shadow: var(--shadow);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .cta-button:hover {
+            background: transparent;
+            color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 0, 0, 0.4);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 32px;
+            font-weight: 900;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: var(--shadow);
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .service-card {
+            background: var(--bg-light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            animation: fadeIn 1s ease;
+            position: relative;
+            border: 1px solid #333;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 0, 0, 0.2);
+            border-color: var(--primary-color);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient);
+        }
+        
+        .service-icon {
+            color: var(--primary-color);
+            font-size: 40px;
+            margin-bottom: 20px;
+            text-shadow: var(--neon-glow);
+        }
+        
+        .service-content h3 {
+            margin-bottom: 15px;
+            color: var(--light-text);
+            font-size: 22px;
+        }
+        
+        .service-price {
+            color: var(--primary-color);
+            font-weight: 900;
+            font-size: 28px;
+            margin: 15px 0;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+        
+        .service-button {
+            display: inline-block;
+            background: transparent;
+            color: var(--primary-color);
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-color);
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        
+        .service-button:hover {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+        
+        /* Packages Section */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .package-card {
+            background: var(--bg-light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            animation: fadeIn 1s ease;
+            position: relative;
+            border: 1px solid #333;
+            text-align: center;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 0, 0, 0.3);
+            border-color: var(--primary-color);
+        }
+        
+        .package-card.featured {
+            border: 2px solid var(--primary-color);
+            transform: scale(1.05);
+        }
+        
+        .package-card.featured::before {
+            content: 'POPULER';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--gradient);
+            color: white;
+            padding: 5px 30px;
+            transform: rotate(45deg);
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+        
+        .package-header {
+            background: var(--secondary-color);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .package-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .package-price {
+            font-size: 36px;
+            font-weight: 900;
+            margin: 10px 0;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+        
+        .package-items {
+            padding: 25px;
+        }
+        
+        .package-items ul {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .package-items ul li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .package-items ul li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 18px;
+            text-shadow: var(--neon-glow);
+        }
+        
+        .package-button {
+            display: block;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 16px;
+        }
+        
+        .package-button:hover {
+            background: transparent;
+            color: var(--primary-color);
+        }
+        
+        /* Process Section */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+        
+        .process-step {
+            flex: 1;
+            min-width: 180px;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            font-weight: 900;
+            margin: 0 auto 20px;
+            box-shadow: var(--shadow);
+            border: 3px solid var(--primary-color);
+        }
+        
+        .process-step h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: var(--bg-light);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            animation: fadeIn 1s ease;
+            position: relative;
+            border: 1px solid #333;
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            font-size: 60px;
+            color: var(--primary-color);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            opacity: 0.3;
+            text-shadow: var(--neon-glow);
+        }
+        
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-style: italic;
+            color: #cccccc;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary-color);
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+        }
+        
+        .testimonial-role {
+            color: #777;
+            font-size: 14px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--light-text);
+            padding: 60px 0 30px;
+            border-top: 2px solid var(--primary-color);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid #444;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #aaa;
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--gradient);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: var(--shadow);
+            z-index: 100;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+            border: 2px solid white;
+        }
+        
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 0, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--secondary-color);
+                flex-direction: column;
+                padding: 20px;
+                border-top: 2px solid var(--primary-color);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .package-card.featured {
+                transform: scale(1);
+            }
+            
+            .process-steps {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome To VallzXStore Official Website!</h1>
-    <p>Roblox Grow A Garden Shop - We Sell : Pets, Currency, and Fruits</p>
-    <nav>
-      <button class="dark-btn" onclick="scrollToSection('products')">Products</button>
-      <button class="white-btn" onclick="scrollToSection('testimonials')">Testimonials</button>
-      <button class="dark-btn" onclick="scrollToSection('contact')">Contact</button>
-    </nav>
-  </header>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">RYUU.<span>LOGOS</span></div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#services">Layanan</a></li>
+                    <li><a href="#packages">Paket</a></li>
+                    <li><a href="#process">Proses</a></li>
+                    <li><a href="#testimonials">Testimoni</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <section id="products">
-    <h2>Our Products</h2>
-    <div class="product">
-      <h3>Pets</h3>
-      <p>Choose from a variety of pets to boost your garden productivity.</p>
-    </div>
-    <div class="product">
-      <h3>Game Currency</h3>
-      <p>Buy in-game coins to upgrade tools and buy seeds instantly!</p>
-    </div>
-    <div class="product">
-      <h3>Fruits</h3>
-      <p>Exclusive and rare fruits to increase your rewards and experience.</p>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Desain Grafis <span>Emperor Ryuubann</span></h1>
+            <p>Harga Terjangkau, Kualitas Premium! Dapatkan desain grafis untuk bisnis Anda dengan harga yang tidak akan membuat kantong jebol.</p>
+            <div class="price-tag">Harga Mulai Rp 6.000!</div>
+            <br>
+            <a href="https://wa.me/6285135412495?text=Halo,%20saya%20tertarik%20dengan%20layanan%20desain%20Ryuu.Logos" class="cta-button">Pesan Sekarang</a>
+        </div>
+    </section>
 
-  <section class="testimonials" id="testimonials">
-    <h2>What Our Customers Say</h2>
-    <div class="testimonial">
-      <p>"Super fast delivery and very helpful support!" 
-        -@NNzNaufalss</p>
-    </div>
-    <div class="testimonial">
-      <p>"Cute pet, Good skill, Cheap price, fast delivery!" 
-        -@BobSupremeX</p>
-    </div>
-    <div class="testimonial">
-      <p>"Trusted store. Will buy again for sure!" 
-        -@LynxzUrban334</p>
-    </div>
-  </section>
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Layanan Kami</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Desain QRIS</h3>
+                        <p>QRIS custom dengan desain elegan dan profesional untuk bisnis Anda</p>
+                        <div class="service-price">Rp 6.000</div>
+                        <a href="https://wa.me/6285135412495?text=Halo,%20saya%20mau%20pesan%20Desain%20QRIS%20seharga%20Rp%206.000" class="service-button">Pesan Sekarang</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Banner YouTube</h3>
+                        <p>Thumbnail dan banner menarik untuk meningkatkan CTR channel YouTube</p>
+                        <div class="service-price">Rp 8.000</div>
+                        <a href="https://wa.me/6285135412495?text=Halo,%20saya%20mau%20pesan%20Banner%20YouTube%20seharga%20Rp%208.000" class="service-button">Pesan Sekarang</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Desain Profile</h3>
+                        <p>Foto profil keren untuk media sosial dan platform digital lainnya</p>
+                        <div class="service-price">Rp 7.000</div>
+                        <a href="https://wa.me/6285135412495?text=Halo,%20saya%20mau%20pesan%20Desain%20Profile%20seharga%20Rp%207.000" class="service-button">Pesan Sekarang</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Tahapan Rekber/MC</h3>
+                        <p>Desain informasi tahapan rekening bersama atau middleman yang jelas</p>
+                        <div class="service-price">Rp 8.000</div>
+                        <a href="https://wa.me/6285135412495?text=Halo,%20saya%20mau%20pesan%20Desain%20Tahapan%20Rekber/MC%20seharga%20Rp%208.000" class="service-button">Pesan Sekarang</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section class="contact" id="contact">
-    <h2>Contact Us</h2>
-    <p>Need help or want to place an order?</p>
-    <a href="https://wa.me/62895608886400" target="_blank">Chat via WhatsApp</a>
-  </section>
+    <!-- Packages Section -->
+    <section id="packages">
+        <div class="container">
+            <h2 class="section-title">Paket Hemat</h2>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-header">
+                        <div class="package-name">Paket 3 Logo</div>
+                        <div class="package-price">Rp 15.000</div>
+                        <p>Hemat Rp 6.000</p>
+                    </div>
+                    <div class="package-items">
+                        <ul>
+                            <li>Banner YouTube</li>
+                            <li>Desain QRIS</li>
+                            <li>Foto Profile</li>
+                            <li>Revisi 2x setiap desain</li>
+                            <li>File PNG & JPG</li>
+                            <li>Pengerjaan 1-2 hari</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/6285135412495?text=Halo,%20saya%20mau%20pesan%20Paket%203%20Logo%20seharga%20Rp%2015.000" class="package-button">Pilih Paket</a>
+                </div>
+                <div class="package-card featured">
+                    <div class="package-header">
+                        <div class="package-name">Paket 5 Logo</div>
+                        <div class="package-price">Rp 30.000</div>
+                        <p>Hemat Rp 11.000</p>
+                    </div>
+                    <div class="package-items">
+                        <ul>
+                            <li>Banner YouTube</li>
+                            <li>Desain QRIS</li>
+                            <li>Foto Profile</li>
+                            <li>List Fee/Topup</li>
+                            <li>Tahapan Rekber/MC</li>
+                            <li>Revisi 3x setiap desain</li>
+                            <li>File PNG, JPG & Source</li>
+                            <li>Pengerjaan 2-3 hari</li>
+                            <li>Priority Support</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/6285135412495?text=Halo,%20saya%20mau%20pesan%20Paket%205%20Logo%20seharga%20Rp%2030.000" class="package-button">Pilih Paket</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script>
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-    }
-  </script>
+    <!-- Process Section -->
+    <section id="process">
+        <div class="container">
+            <h2 class="section-title">Cara Pesan</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Pilih Layanan</h3>
+                    <p>Tentukan layanan atau paket yang Anda butuhkan</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Hubungi Kami</h3>
+                    <p>Kirim pesan via WhatsApp dengan detail pesanan</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Konfirmasi & Bayar</h3>
+                    <p>Lakukan pembayaran setelah konfirmasi</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Proses Desain</h3>
+                    <p>Tim kami mengerjakan desain sesuai pesanan</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>Revisi & Selesai</h3>
+                    <p>File final dikirim setelah revisi disetujui</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Testimoni Pelanggan</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Mantep design nya,mantep layanan nya,mantep hasil nya,mantep juga sama harganya,worth it banget sih qris 6k,auto langganan!
+                    </div>
+                    <div class="testimonial-author">Alxyz store</div>
+                    <div class="testimonial-role">Owner Toko JB Online</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Paket 5 logo cuma 30 ribu? Worth it banget! revisi juga di layanin lagi!,salut sama bang ryuu!
+                    </div>
+                    <div class="testimonial-author">Lynzx Urban</div>
+                    <div class="testimonial-role">Content Creator</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Banner YouTube-nya keren banget! Salut sama kamu ban,sekeren ini cuma 8k!
+                    </div>
+                    <div class="testimonial-author">Don Control</div>
+                    <div class="testimonial-role">YouTuber Mobile Legend</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>RYUU.LOGOS</h3>
+                    <p>Jasa desain grafis murah,dan ramah!</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="#">Desain QRIS - Rp 6.000</a></li>
+                        <li><a href="#">Banner YouTube - Rp 8.000</a></li>
+                        <li><a href="#">Desain Profile - Rp 7.000</a></li>
+                        <li><a href="#">Tahapan Rekber/MC - Rp 8.000</a></li>
+                        <li><a href="#">Paket 3 Logo - Rp 15.000</a></li>
+                        <li><a href="#">Paket 5 Logo - Rp 30.000</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Kontak</h3>
+                    <ul>
+                        <li><i class="fab fa-whatsapp"></i> WhatsApp: +62 851-3541-2495</li>
+                        <li><i class="fas fa-envelope"></i> Email: zeckalwaysgotscamlol@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> Buka: 24/7</li>
+                        <li><i class="fas fa-map-marker-alt"></i> United States Of America,Florida</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Metode Bayar</h3>
+                    <ul>
+                        <li>DANA</li>
+                        <li>QRIS</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; © 2023 RYUU.LOGOS. Harga Terjangkau, Kualitas Terjamin!</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/6285135412495?text=hai ryuu,%20pengen%order%20logo%20dong%20saya%20dari%20website%20Ryuu.Logos" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });
+        
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 1s ease forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.service-card, .package-card, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
