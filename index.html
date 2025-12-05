@@ -3,22 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ryuu.Logos - Jasa Desain Grafis</title>
+    <title>Urban Resources - Koleksi Lengkap Desain</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #ff0000;
-            --primary-dark: #cc0000;
-            --primary-light: #ff3333;
-            --secondary-color: #1a1a1a;
-            --accent-color: #ff4444;
-            --text-color: #ffffff;
-            --light-text: #ffffff;
-            --bg-dark: #0a0a0a;
-            --bg-light: #1a1a1a;
-            --shadow: 0 0 20px rgba(255, 0, 0, 0.3);
-            --gradient: linear-gradient(135deg, #ff0000 0%, #990000 100%);
-            --neon-glow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+            --primary: #ff4757;
+            --secondary: #2f3542;
+            --accent: #ffa502;
+            --dark: #1e272e;
+            --light: #ffffff;
+            --neon-glow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary);
         }
         
         * {
@@ -29,10 +23,52 @@
         }
         
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-color);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: var(--light);
             line-height: 1.6;
             overflow-x: hidden;
+        }
+        
+        /* Preloader Animation */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loader {
+            width: 80px;
+            height: 80px;
+            position: relative;
+        }
+        
+        .loader-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 5px solid transparent;
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        .loader-circle:nth-child(2) {
+            border: 5px solid transparent;
+            border-bottom-color: var(--accent);
+            animation: spin 1.5s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
         .container {
@@ -44,15 +80,15 @@
         
         /* Header Styles */
         header {
-            background: var(--secondary-color);
-            color: var(--light-text);
+            background: rgba(30, 39, 46, 0.95);
+            backdrop-filter: blur(10px);
             padding: 15px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: var(--shadow);
-            border-bottom: 2px solid var(--primary-color);
+            border-bottom: 2px solid var(--primary);
+            animation: slideDown 0.8s ease-out;
         }
         
         .header-container {
@@ -64,58 +100,80 @@
         .logo {
             font-size: 28px;
             font-weight: 900;
-            animation: fadeIn 1s ease;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .logo span {
-            color: var(--primary-color);
-            text-shadow: var(--neon-glow);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 25px;
-        }
-        
-        nav ul li a {
-            color: var(--light-text);
+            color: var(--primary);
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            padding: 5px 10px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            text-shadow: var(--neon-glow);
+            animation: glow 2s infinite alternate;
         }
         
-        nav ul li a:hover {
-            color: var(--primary-color);
-            text-shadow: var(--neon-glow);
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            border: 2px solid var(--primary);
+            animation: float 3s ease-in-out infinite;
         }
         
         .mobile-menu {
             display: none;
             font-size: 24px;
+            color: var(--primary);
             cursor: pointer;
-            color: var(--primary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav ul li a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            transition: left 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            left: 0;
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), var(--bg-dark);
-            color: var(--light-text);
-            padding: 150px 0 100px;
+            background: linear-gradient(rgba(30, 39, 46, 0.9), rgba(47, 53, 66, 0.9)), url('https://i.imgur.com/vHzmqFd.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 180px 0 100px;
             text-align: center;
-            animation: fadeIn 1.5s ease;
             position: relative;
             overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
         
         .hero::before {
@@ -125,89 +183,100 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at center, transparent 0%, var(--bg-dark) 70%);
-            z-index: 1;
+            background: radial-gradient(circle at 50% 50%, transparent 30%, rgba(30, 39, 46, 0.9) 70%);
         }
         
         .hero-content {
             position: relative;
             z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out;
         }
         
         .hero h1 {
-            font-size: 52px;
+            font-size: 72px;
             margin-bottom: 20px;
-            animation: slideUp 1s ease;
-            text-transform: uppercase;
-            letter-spacing: 3px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 71, 87, 0.5);
             font-weight: 900;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-        }
-        
-        .hero h1 span {
-            color: var(--primary-color);
-            text-shadow: var(--neon-glow);
+            letter-spacing: 2px;
         }
         
         .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            animation: slideUp 1.2s ease;
-            color: #cccccc;
+            font-size: 22px;
+            margin-bottom: 40px;
+            color: #ffffff;
+            opacity: 0.9;
         }
         
-        .price-tag {
-            display: inline-block;
-            background: var(--gradient);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 24px;
-            margin: 10px 0;
-            animation: pulse 2s infinite;
-            box-shadow: var(--shadow);
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
         }
         
-        .cta-button {
-            display: inline-block;
-            background: var(--gradient);
-            color: var(--light-text);
-            padding: 15px 40px;
+        .btn {
+            padding: 15px 35px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 18px;
             transition: all 0.3s ease;
-            animation: slideUp 1.4s ease;
-            box-shadow: var(--shadow);
+            font-size: 16px;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border: 2px solid var(--primary-color);
         }
         
-        .cta-button:hover {
-            background: transparent;
-            color: var(--primary-color);
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary), #ff6b81);
+            color: var(--light);
+            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+        }
+        
+        .btn-primary:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(255, 0, 0, 0.4);
+            box-shadow: 0 10px 25px rgba(255, 71, 87, 0.6);
         }
         
-        /* Section Styles */
-        section {
-            padding: 80px 0;
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--light);
+            transform: translateY(-5px);
+        }
+        
+        /* Resources Section */
+        .resources {
+            padding: 100px 0;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
-            color: var(--primary-color);
+            margin-bottom: 60px;
             position: relative;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 32px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        
+        .section-title h2 {
+            font-size: 42px;
+            color: var(--primary);
+            margin-bottom: 15px;
             font-weight: 900;
+            text-shadow: 0 0 10px rgba(255, 71, 87, 0.3);
         }
         
         .section-title::after {
@@ -215,476 +284,300 @@
             position: absolute;
             width: 100px;
             height: 4px;
-            background: var(--gradient);
+            background: linear-gradient(45deg, var(--primary), var(--accent));
             bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            box-shadow: var(--shadow);
+            box-shadow: 0 0 10px rgba(255, 71, 87, 0.5);
         }
         
-        /* Services Section */
-        .services-grid {
+        .resources-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
         }
         
-        .service-card {
-            background: var(--bg-light);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            animation: fadeIn 1s ease;
+        .resource-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 71, 87, 0.2);
+            backdrop-filter: blur(10px);
             position: relative;
-            border: 1px solid #333;
-            padding: 25px;
-            text-align: center;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out both;
         }
         
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(255, 0, 0, 0.2);
-            border-color: var(--primary-color);
-        }
-        
-        .service-card::before {
+        .resource-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: var(--gradient);
+            height: 4px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
         }
         
-        .service-icon {
-            color: var(--primary-color);
-            font-size: 40px;
-            margin-bottom: 20px;
+        .resource-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(255, 71, 87, 0.3);
+            border-color: var(--primary);
+        }
+        
+        .resource-icon {
+            font-size: 50px;
+            color: var(--primary);
+            margin-bottom: 25px;
             text-shadow: var(--neon-glow);
+            animation: float 3s ease-in-out infinite;
         }
         
-        .service-content h3 {
+        .resource-card h3 {
+            color: var(--light);
             margin-bottom: 15px;
-            color: var(--light-text);
-            font-size: 22px;
-        }
-        
-        .service-price {
-            color: var(--primary-color);
-            font-weight: 900;
-            font-size: 28px;
-            margin: 15px 0;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-        }
-        
-        .service-button {
-            display: inline-block;
-            background: transparent;
-            color: var(--primary-color);
-            padding: 10px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            border: 2px solid var(--primary-color);
-            text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 1px;
-        }
-        
-        .service-button:hover {
-            background: var(--primary-color);
-            color: white;
-            box-shadow: var(--shadow);
-        }
-        
-        /* Packages Section */
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .package-card {
-            background: var(--bg-light);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            animation: fadeIn 1s ease;
-            position: relative;
-            border: 1px solid #333;
-            text-align: center;
-        }
-        
-        .package-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(255, 0, 0, 0.3);
-            border-color: var(--primary-color);
-        }
-        
-        .package-card.featured {
-            border: 2px solid var(--primary-color);
-            transform: scale(1.05);
-        }
-        
-        .package-card.featured::before {
-            content: 'POPULER';
-            position: absolute;
-            top: 20px;
-            right: -30px;
-            background: var(--gradient);
-            color: white;
-            padding: 5px 30px;
-            transform: rotate(45deg);
-            font-weight: 700;
-            font-size: 12px;
-            letter-spacing: 1px;
-            z-index: 2;
-        }
-        
-        .package-header {
-            background: var(--secondary-color);
-            color: white;
-            padding: 25px;
-            text-align: center;
-            border-bottom: 2px solid var(--primary-color);
-        }
-        
-        .package-name {
             font-size: 24px;
             font-weight: 700;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
         
-        .package-price {
-            font-size: 36px;
-            font-weight: 900;
-            margin: 10px 0;
-            color: var(--primary-color);
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        .resource-card p {
+            color: #cccccc;
+            margin-bottom: 25px;
         }
         
-        .package-items {
-            padding: 25px;
+        /* Social Media Section */
+        .social-media {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.03);
         }
         
-        .package-items ul {
-            list-style: none;
-            text-align: left;
-        }
-        
-        .package-items ul li {
-            margin-bottom: 12px;
-            padding-left: 30px;
-            position: relative;
-        }
-        
-        .package-items ul li:before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-            font-weight: bold;
-            font-size: 18px;
-            text-shadow: var(--neon-glow);
-        }
-        
-        .package-button {
-            display: block;
-            background: var(--gradient);
-            color: white;
-            text-align: center;
-            padding: 15px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 16px;
-        }
-        
-        .package-button:hover {
-            background: transparent;
-            color: var(--primary-color);
-        }
-        
-        /* Process Section */
-        .process-steps {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-top: 50px;
-        }
-        
-        .process-step {
-            flex: 1;
-            min-width: 180px;
-            text-align: center;
-            padding: 20px;
-            position: relative;
-        }
-        
-        .step-number {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient);
-            color: white;
-            border-radius: 50%;
+        .social-grid {
             display: flex;
             justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .social-card {
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            font-size: 28px;
-            font-weight: 900;
-            margin: 0 auto 20px;
-            box-shadow: var(--shadow);
-            border: 3px solid var(--primary-color);
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 71, 87, 0.2);
+            text-decoration: none;
+            animation: fadeInUp 0.8s ease-out both;
         }
         
-        .process-step h3 {
-            margin-bottom: 10px;
-            color: var(--primary-color);
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .social-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(255, 71, 87, 0.3);
+            border-color: var(--primary);
         }
         
-        /* Testimonials Section */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        .social-card.whatsapp:hover {
+            background: #25D366;
         }
         
-        .testimonial-card {
-            background: var(--bg-light);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            animation: fadeIn 1s ease;
-            position: relative;
-            border: 1px solid #333;
+        .social-card.youtube:hover {
+            background: #FF0000;
         }
         
-        .testimonial-card:before {
-            content: '"';
-            font-size: 60px;
-            color: var(--primary-color);
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            opacity: 0.3;
-            text-shadow: var(--neon-glow);
+        .social-card.tiktok:hover {
+            background: #000000;
         }
         
-        .testimonial-text {
-            margin-bottom: 20px;
-            font-style: italic;
-            color: #cccccc;
+        .social-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
         }
         
-        .testimonial-author {
-            font-weight: 700;
-            color: var(--primary-color);
-            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+        .social-card.whatsapp .social-icon {
+            color: #25D366;
         }
         
-        .testimonial-role {
-            color: #777;
+        .social-card.youtube .social-icon {
+            color: #FF0000;
+        }
+        
+        .social-card.tiktok .social-icon {
+            color: #ffffff;
+        }
+        
+        .social-card:hover .social-icon {
+            color: white !important;
+        }
+        
+        .social-card span {
+            color: var(--light);
+            font-weight: 600;
             font-size: 14px;
+        }
+        
+        /* Design Service Section */
+        .design-service {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(255, 71, 87, 0.1) 0%, rgba(255, 165, 2, 0.1) 100%);
+            text-align: center;
         }
         
         /* Footer */
         footer {
-            background-color: var(--secondary-color);
-            color: var(--light-text);
+            background: rgba(0, 0, 0, 0.9);
             padding: 60px 0 30px;
-            border-top: 2px solid var(--primary-color);
+            border-top: 2px solid var(--primary);
         }
         
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
+        .footer-content {
+            text-align: center;
             margin-bottom: 40px;
         }
         
-        .footer-column h3 {
-            color: var(--primary-color);
+        .footer-logo {
+            font-size: 32px;
+            color: var(--primary);
             margin-bottom: 20px;
-            font-size: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-column ul li a {
-            color: #ccc;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-column ul li a:hover {
-            color: var(--primary-color);
-            padding-left: 5px;
-            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-links a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 40px;
-            height: 40px;
-            background-color: #333;
-            color: white;
-            border-radius: 50%;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 1px solid #444;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow);
+            text-shadow: var(--neon-glow);
         }
         
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid #444;
-            color: #aaa;
-        }
-        
-        /* WhatsApp Button */
-        .whatsapp-button {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--gradient);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 30px;
-            box-shadow: var(--shadow);
-            z-index: 100;
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-            border: 2px solid white;
-        }
-        
-        .whatsapp-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #777;
         }
         
         /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes slideUp {
-            from { 
+        @keyframes fadeInUp {
+            from {
                 opacity: 0;
                 transform: translateY(30px);
             }
-            to { 
+            to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
         
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(255, 0, 0, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px var(--primary);
+            }
+            to {
+                text-shadow: 0 0 20px var(--primary), 0 0 30px var(--primary);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        /* Animation delays for cards */
+        .resource-card:nth-child(1) { animation-delay: 0.1s; }
+        .resource-card:nth-child(2) { animation-delay: 0.2s; }
+        .resource-card:nth-child(3) { animation-delay: 0.3s; }
+        .social-card:nth-child(1) { animation-delay: 0.1s; }
+        .social-card:nth-child(2) { animation-delay: 0.2s; }
+        .social-card:nth-child(3) { animation-delay: 0.3s; }
         
         /* Responsive Styles */
         @media (max-width: 768px) {
-            .mobile-menu {
-                display: block;
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
             }
             
             nav ul {
+                margin-top: 15px;
                 display: none;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background-color: var(--secondary-color);
                 flex-direction: column;
-                padding: 20px;
-                border-top: 2px solid var(--primary-color);
+                width: 100%;
+                text-align: center;
+                gap: 10px;
             }
             
             nav ul.show {
                 display: flex;
             }
             
-            nav ul li {
-                margin: 10px 0;
+            .mobile-menu {
+                display: block;
             }
             
             .hero h1 {
-                font-size: 36px;
+                font-size: 48px;
             }
             
             .hero p {
                 font-size: 18px;
             }
             
-            .package-card.featured {
-                transform: scale(1);
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
             }
             
-            .process-steps {
-                flex-direction: column;
+            .section-title h2 {
+                font-size: 32px;
+            }
+            
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-card {
+                width: 120px;
+                height: 120px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-circle"></div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <div class="logo">RYUU.<span>LOGOS</span></div>
+            <a href="#" class="logo">
+                <img src="https://i.imgur.com/lMdiP64.jpeg" alt="Urban Profile">
+                Urban Resources
+            </a>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#home">Beranda</a></li>
-                    <li><a href="#services">Layanan</a></li>
-                    <li><a href="#packages">Paket</a></li>
-                    <li><a href="#process">Proses</a></li>
-                    <li><a href="#testimonials">Testimoni</a></li>
-                    <li><a href="#contact">Kontak</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#social">Social Media</a></li>
+                    <li><a href="#design">Jasa Design</a></li>
                 </ul>
             </nav>
         </div>
@@ -693,239 +586,125 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
-            <h1>Desain Grafis <span>Emperor Ryuubann</span></h1>
-            <p>Harga Terjangkau, Kualitas Premium! Dapatkan desain grafis untuk bisnis Anda dengan harga yang tidak akan membuat kantong jebol.</p>
-            <div class="price-tag">Harga Mulai Rp 6.000!</div>
-            <br>
-            <a href="https://wa.me/6285135412495?text=Halo,%20saya%20tertarik%20dengan%20layanan%20desain%20Ryuu.Logos" class="cta-button">Pesan Sekarang</a>
+            <h1>URBAN RESOURCES</h1>
+            <p>Koleksi lengkap bahan desain, preset, dan resources premium untuk kebutuhan kreatif Anda</p>
+            <div class="hero-buttons">
+                <a href="#resources" class="btn btn-primary">Lihat Resources</a>
+                <a href="#social" class="btn btn-secondary">Follow Media Sosial</a>
+            </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services">
+    <!-- Resources Section -->
+    <section class="resources" id="resources">
         <div class="container">
-            <h2 class="section-title">Layanan Kami</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-qrcode"></i>
+            <div class="section-title">
+                <h2>Resource Urban</h2>
+                <p>Download bahan desain lengkap untuk proyek kreatif Anda</p>
+            </div>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-archive"></i>
                     </div>
-                    <div class="service-content">
-                        <h3>Desain QRIS</h3>
-                        <p>QRIS custom dengan desain elegan dan profesional untuk bisnis Anda</p>
-                        <div class="service-price">Rp 6.000</div>
-                        <a href="https://wa.me/6285135412495?text=Halo,%20saya%20mau%20pesan%20Desain%20QRIS%20seharga%20Rp%206.000" class="service-button">Pesan Sekarang</a>
-                    </div>
+                    <h3>昭夫 - Pack Ryuubann 2K+</h3>
+                    <p>Koleksi lengkap 2000+ bahan desain termasuk font, mockup, template, dan resources premium lainnya untuk kebutuhan desain grafis Anda.</p>
+                    <a href="https://drive.google.com/drive/folders/14JOw7Il6U_IcYFg9jJD1ExigGp4qnajX" class="btn btn-primary" target="_blank">Download Sekarang</a>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>昭夫 - Preset Pixellab ft. Aozora</h3>
+                    <p>Kumpulan preset Pixellab dengan style modern dan aesthetic hasil kolaborasi dengan Aozora. Perfect untuk desain media sosial!</p>
+                    <a href="https://drive.google.com/drive/folders/1gFmPhkj9P17N62_zREg0fULHrN1UfGOH" class="btn btn-primary" target="_blank">Download Sekarang</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>昭夫 - Preset IbispaintX</h3>
+                    <p>Preset IbispaintX untuk digital art dan ilustrasi. Brush settings, color palettes, dan tools untuk artwork yang lebih professional.</p>
+                    <a href="https://drive.google.com/drive/folders/1rvyq8yL0UseNg81Bm4oiA1DG249CyIN_" class="btn btn-primary" target="_blank">Download Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-media" id="social">
+        <div class="container">
+            <div class="section-title">
+                <h2>Media Sosial</h2>
+                <p>Follow dan hubungi kami di platform sosial media</p>
+            </div>
+            <div class="social-grid">
+                <a href="https://wa.me/6285135412495" class="social-card whatsapp" target="_blank">
+                    <div class="social-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="https://www.youtube.com/@urbaniolossio" class="social-card youtube" target="_blank">
+                    <div class="social-icon">
                         <i class="fab fa-youtube"></i>
                     </div>
-                    <div class="service-content">
-                        <h3>Banner YouTube</h3>
-                        <p>Thumbnail dan banner menarik untuk meningkatkan CTR channel YouTube</p>
-                        <div class="service-price">Rp 8.000</div>
-                        <a href="https://wa.me/6285135412495?text=Halo,%20saya%20mau%20pesan%20Banner%20YouTube%20seharga%20Rp%208.000" class="service-button">Pesan Sekarang</a>
+                    <span>YouTube</span>
+                </a>
+                <a href="https://www.tiktok.com/@wbannxx" class="social-card tiktok" target="_blank">
+                    <div class="social-icon">
+                        <i class="fab fa-tiktok"></i>
                     </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Desain Profile</h3>
-                        <p>Foto profil keren untuk media sosial dan platform digital lainnya</p>
-                        <div class="service-price">Rp 7.000</div>
-                        <a href="https://wa.me/6285135412495?text=Halo,%20saya%20mau%20pesan%20Desain%20Profile%20seharga%20Rp%207.000" class="service-button">Pesan Sekarang</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-exchange-alt"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Tahapan Rekber/MC</h3>
-                        <p>Desain informasi tahapan rekening bersama atau middleman yang jelas</p>
-                        <div class="service-price">Rp 8.000</div>
-                        <a href="https://wa.me/6285135412495?text=Halo,%20saya%20mau%20pesan%20Desain%20Tahapan%20Rekber/MC%20seharga%20Rp%208.000" class="service-button">Pesan Sekarang</a>
-                    </div>
-                </div>
+                    <span>TikTok</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Packages Section -->
-    <section id="packages">
+    <!-- Design Service Section -->
+    <section class="design-service" id="design">
         <div class="container">
-            <h2 class="section-title">Paket Hemat</h2>
-            <div class="packages-grid">
-                <div class="package-card">
-                    <div class="package-header">
-                        <div class="package-name">Paket 3 Logo</div>
-                        <div class="package-price">Rp 15.000</div>
-                        <p>Hemat Rp 6.000</p>
-                    </div>
-                    <div class="package-items">
-                        <ul>
-                            <li>Banner YouTube</li>
-                            <li>Desain QRIS</li>
-                            <li>Foto Profile</li>
-                            <li>Revisi 2x setiap desain</li>
-                            <li>File PNG & JPG</li>
-                            <li>Pengerjaan 1-2 hari</li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/6285135412495?text=Halo,%20saya%20mau%20pesan%20Paket%203%20Logo%20seharga%20Rp%2015.000" class="package-button">Pilih Paket</a>
-                </div>
-                <div class="package-card featured">
-                    <div class="package-header">
-                        <div class="package-name">Paket 5 Logo</div>
-                        <div class="package-price">Rp 30.000</div>
-                        <p>Hemat Rp 11.000</p>
-                    </div>
-                    <div class="package-items">
-                        <ul>
-                            <li>Banner YouTube</li>
-                            <li>Desain QRIS</li>
-                            <li>Foto Profile</li>
-                            <li>List Fee/Topup</li>
-                            <li>Tahapan Rekber/MC</li>
-                            <li>Revisi 3x setiap desain</li>
-                            <li>File PNG, JPG & Source</li>
-                            <li>Pengerjaan 2-3 hari</li>
-                            <li>Priority Support</li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/6285135412495?text=Halo,%20saya%20mau%20pesan%20Paket%205%20Logo%20seharga%20Rp%2030.000" class="package-button">Pilih Paket</a>
-                </div>
+            <div class="section-title">
+                <h2>Jasa Design Profesional</h2>
+                <p>Butuh desain grafis custom? Pesan sekarang!</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section id="process">
-        <div class="container">
-            <h2 class="section-title">Cara Pesan</h2>
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Pilih Layanan</h3>
-                    <p>Tentukan layanan atau paket yang Anda butuhkan</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Hubungi Kami</h3>
-                    <p>Kirim pesan via WhatsApp dengan detail pesanan</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Konfirmasi & Bayar</h3>
-                    <p>Lakukan pembayaran setelah konfirmasi</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Proses Desain</h3>
-                    <p>Tim kami mengerjakan desain sesuai pesanan</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">5</div>
-                    <h3>Revisi & Selesai</h3>
-                    <p>File final dikirim setelah revisi disetujui</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials">
-        <div class="container">
-            <h2 class="section-title">Testimoni Pelanggan</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        Mantep design nya,mantep layanan nya,mantep hasil nya,mantep juga sama harganya,worth it banget sih qris 6k,auto langganan!
-                    </div>
-                    <div class="testimonial-author">Alxyz store</div>
-                    <div class="testimonial-role">Owner Toko JB Online</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        Paket 5 logo cuma 30 ribu? Worth it banget! revisi juga di layanin lagi!,salut sama bang ryuu!
-                    </div>
-                    <div class="testimonial-author">Lynzx Urban</div>
-                    <div class="testimonial-role">Content Creator</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        Banner YouTube-nya keren banget! Salut sama kamu ban,sekeren ini cuma 8k!
-                    </div>
-                    <div class="testimonial-author">Don Control</div>
-                    <div class="testimonial-role">YouTuber Mobile Legend</div>
-                </div>
-            </div>
+            <a href="https://banxzban.github.io/ryuu.logos/" class="btn btn-primary" target="_blank" style="padding: 20px 50px; font-size: 18px;">
+                <i class="fas fa-palette"></i> Pesan Design Grafis Ryuubann
+            </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h3>RYUU.LOGOS</h3>
-                    <p>Jasa desain grafis murah,dan ramah!</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Layanan</h3>
-                    <ul>
-                        <li><a href="#">Desain QRIS - Rp 6.000</a></li>
-                        <li><a href="#">Banner YouTube - Rp 8.000</a></li>
-                        <li><a href="#">Desain Profile - Rp 7.000</a></li>
-                        <li><a href="#">Tahapan Rekber/MC - Rp 8.000</a></li>
-                        <li><a href="#">Paket 3 Logo - Rp 15.000</a></li>
-                        <li><a href="#">Paket 5 Logo - Rp 30.000</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Kontak</h3>
-                    <ul>
-                        <li><i class="fab fa-whatsapp"></i> WhatsApp: +62 851-3541-2495</li>
-                        <li><i class="fas fa-envelope"></i> Email: zeckalwaysgotscamlol@gmail.com</li>
-                        <li><i class="fas fa-clock"></i> Buka: 24/7</li>
-                        <li><i class="fas fa-map-marker-alt"></i> United States Of America,Florida</li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Metode Bayar</h3>
-                    <ul>
-                        <li>DANA</li>
-                        <li>QRIS</li>
-                    </ul>
-                </div>
+            <div class="footer-content">
+                <div class="footer-logo">Urban Resources</div>
+                <p>© 2023 Urban Resources. All rights reserved. | Koleksi resources desain terlengkap</p>
             </div>
             <div class="footer-bottom">
-                <p>&copy; © 2023 RYUU.LOGOS. Harga Terjangkau, Kualitas Terjamin!</p>
+                <p>Made with ❤️ by Ryuubann | All resources are free to use for personal projects</p>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/6285135412495?text=hai ryuu,%20pengen%order%20logo%20dong%20saya%20dari%20website%20Ryuu.Logos" class="whatsapp-button" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
     <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            }, 1500);
+        });
+        
         // Mobile Menu Toggle
         document.querySelector('.mobile-menu').addEventListener('click', function() {
             document.querySelector('nav ul').classList.toggle('show');
         });
         
-        // Smooth Scrolling
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -946,7 +725,7 @@
             });
         });
         
-        // Animation on scroll
+        // Add animation to elements when they come into view
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -955,16 +734,68 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeIn 1s ease forwards';
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
         
         // Observe elements for animation
-        document.querySelectorAll('.service-card, .package-card, .testimonial-card').forEach(el => {
+        document.querySelectorAll('.resource-card, .social-card').forEach(el => {
             el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
+        
+        // Add floating animation to icons
+        const icons = document.querySelectorAll('.resource-icon');
+        icons.forEach((icon, index) => {
+            icon.style.animationDelay = `${index * 0.2}s`;
+        });
+        
+        // Social media hover effects
+        document.querySelectorAll('.social-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.05)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+        
+        // Add scroll animation to header
+        let lastScroll = 0;
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            const header = document.querySelector('header');
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Add typing effect to hero text
+        const heroText = document.querySelector('.hero p');
+        const originalText = heroText.textContent;
+        heroText.textContent = '';
+        
+        let charIndex = 0;
+        function typeWriter() {
+            if (charIndex < originalText.length) {
+                heroText.textContent += originalText.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, 30);
+            }
+        }
+        
+        // Start typing effect after preloader
+        setTimeout(typeWriter, 1600);
     </script>
 </body>
 </html>
