@@ -3,917 +3,1227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>prince.ryuu | Logo & Brand Identity</title>
+    <title>Ryuu.Logos - Design GFX Murah</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #0066ff;
+            --primary-dark: #0047cc;
+            --primary-light: #3399ff;
+            --secondary: #0a0f2b;
+            --accent: #00ccff;
+            --dark: #0a0a1a;
+            --light: #ffffff;
+            --gradient: linear-gradient(135deg, #0066ff 0%, #00ccff 100%);
+            --gradient-dark: linear-gradient(135deg, #0047cc 0%, #0066ff 100%);
+            --neon-glow: 0 0 10px #0066ff, 0 0 20px #0066ff, 0 0 30px #0066ff;
+            --neon-accent: 0 0 15px #00ccff, 0 0 25px #00ccff;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
-        :root {
-            --primary-blue: #0a3d62;
-            --secondary-blue: #1e90ff;
-            --accent-blue: #4bcffa;
-            --light-blue: #dff9fb;
-            --dark-blue: #0c2461;
-            --gradient-blue: linear-gradient(135deg, #0a3d62, #1e90ff, #4bcffa);
-            --gradient-dark: linear-gradient(135deg, #0c2461, #0a3d62);
-        }
-
+        
         body {
-            background-color: #f0f8ff;
-            color: #333;
+            background: var(--dark);
+            color: var(--light);
             line-height: 1.6;
             overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(75, 207, 250, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(30, 144, 255, 0.05) 0%, transparent 20%);
+            position: relative;
+            min-height: 100vh;
         }
-
-        /* Header dan Navigasi */
-        header {
-            background: var(--gradient-blue);
-            color: white;
-            padding: 1rem 0;
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 102, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 102, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(0, 102, 255, 0.03) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        /* Blue Glow Up Effect */
+        .glow-effect {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, rgba(0, 102, 255, 0.2) 0%, transparent 100%);
+            pointer-events: none;
+            z-index: 1;
+            animation: glowUp 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glowUp {
+            0% {
+                opacity: 0.3;
+                height: 100px;
+            }
+            100% {
+                opacity: 0.7;
+                height: 150px;
+            }
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Premium Header */
+        .premium-header {
+            background: linear-gradient(135deg, rgba(10,15,43,0.98) 0%, rgba(26,36,86,0.98) 100%);
+            backdrop-filter: blur(20px);
+            padding: 20px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(10, 61, 98, 0.3);
-            backdrop-filter: blur(10px);
-            background: rgba(10, 61, 98, 0.95);
+            border-bottom: 3px solid var(--primary);
+            box-shadow: 0 5px 30px rgba(0, 102, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        .header-content {
+        
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
+        
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
+            text-decoration: none;
+            position: relative;
         }
-
-        .logo-img {
-            width: 55px;
-            height: 55px;
+        
+        .logo-pfp {
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--light-blue);
-            box-shadow: 0 0 15px rgba(75, 207, 250, 0.5);
-            transition: transform 0.3s ease;
+            border: 3px solid var(--primary);
+            box-shadow: var(--neon-glow);
+            animation: floatLogo 4s ease-in-out infinite;
         }
-
-        .logo-img:hover {
-            transform: rotate(10deg);
+        
+        @keyframes floatLogo {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(5deg);
+            }
         }
-
+        
         .logo-text {
-            font-size: 1.9rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-        }
-
-        .logo-text span {
-            color: var(--accent-blue);
+            font-size: 32px;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--primary-light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: var(--neon-glow);
+            letter-spacing: 2px;
             position: relative;
         }
-
-        .logo-text span::after {
-            content: '';
+        
+        .logo-text::after {
+            content: 'Design GFX Murah';
             position: absolute;
-            bottom: -2px;
+            bottom: -20px;
             left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--light-blue);
-            border-radius: 1px;
+            font-size: 12px;
+            color: var(--accent);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.8;
         }
-
-        nav ul {
+        
+        .nav-links {
             display: flex;
+            gap: 30px;
             list-style: none;
         }
-
-        nav ul li {
-            margin-left: 2.2rem;
-            position: relative;
-        }
-
-        nav ul li a {
-            color: white;
+        
+        .nav-links a {
+            color: var(--light);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 10px 15px;
+            border-radius: 5px;
             transition: all 0.3s ease;
-            padding: 8px 15px;
-            border-radius: 8px;
             position: relative;
             overflow: hidden;
+            background: rgba(0, 102, 255, 0.1);
         }
-
-        nav ul li a::before {
+        
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient);
+            transition: left 0.3s ease;
+        }
+        
+        .nav-links a:hover::before {
+            left: 0;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+            background: rgba(0, 102, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .cta-button {
+            background: var(--gradient);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 102, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.4);
+            background: var(--gradient-dark);
+        }
+        
+        .cta-button::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
         }
-
-        nav ul li a:hover::before {
+        
+        .cta-button:hover::before {
             left: 100%;
         }
-
-        nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.15);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Banner */
-        .banner {
-            margin-top: 80px;
-            background: linear-gradient(rgba(10, 61, 98, 0.9), rgba(30, 144, 255, 0.85)), url('https://i.imgur.com/FPMrXCL.jpeg');
-            background-size: cover;
-            background-position: center;
-            height: 450px;
-            display: flex;
+        
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            color: var(--primary);
+            cursor: pointer;
+            background: rgba(0, 102, 255, 0.1);
+            border: 2px solid var(--primary);
+            border-radius: 5px;
+            width: 50px;
+            height: 50px;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            color: white;
-            border-radius: 0 0 25px 25px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Premium Hero Section */
+        .premium-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
             position: relative;
             overflow: hidden;
         }
-
-        .banner::before {
-            content: '';
+        
+        .hero-background {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%231e90ff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            background: linear-gradient(rgba(10,10,26,0.9), rgba(26,36,86,0.9)), url('https://i.imgur.com/FPMrXCL.jpeg');
+            background-size: cover;
+            background-position: center;
             z-index: 1;
+            animation: backgroundPulse 10s infinite alternate;
         }
-
-        .banner-content {
-            position: relative;
+        
+        @keyframes backgroundPulse {
+            0% {
+                filter: brightness(1) contrast(1);
+            }
+            100% {
+                filter: brightness(1.1) contrast(1.1);
+            }
+        }
+        
+        .hero-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
             z-index: 2;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 3;
             max-width: 800px;
-            padding: 25px;
-            background: rgba(10, 61, 98, 0.4);
-            border-radius: 20px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin: 0 auto;
+            text-align: center;
         }
-
-        .banner h1 {
-            font-size: 3.8rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
-            background: linear-gradient(to right, #fff, var(--light-blue));
+        
+        .hero-title {
+            font-size: 84px;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--light), var(--primary-light), var(--accent));
             -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: glow 2s ease-in-out infinite alternate;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 102, 255, 0.5);
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            line-height: 1.1;
+            animation: titleGlow 2s ease-in-out infinite alternate;
         }
-
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(75, 207, 250, 0.3);
+        
+        @keyframes titleGlow {
+            0% {
+                text-shadow: 0 0 20px rgba(0, 102, 255, 0.5);
             }
-            to {
-                text-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 0 0 30px rgba(75, 207, 250, 0.5);
+            100% {
+                text-shadow: 0 0 40px rgba(0, 204, 255, 0.8);
             }
         }
-
-        .banner p {
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
-            color: var(--light-blue);
+        
+        .hero-subtitle {
+            font-size: 24px;
+            color: #cccccc;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
-
-        /* Section Umum */
-        section {
-            padding: 5rem 0;
+        
+        .price-tag {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 32px;
+            font-weight: 900;
+            margin: 30px 0;
+            box-shadow: 0 0 30px rgba(0, 102, 255, 0.5);
+            animation: float 3s ease-in-out infinite;
+            border: 3px solid var(--accent);
+            position: relative;
+            overflow: hidden;
         }
-
+        
+        .price-tag::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: var(--gradient);
+            filter: blur(20px);
+            opacity: 0.5;
+            z-index: -1;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #cccccc;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 20px rgba(0, 102, 255, 0.2);
+        }
+        
+        .feature-item i {
+            color: var(--primary);
+            font-size: 20px;
+            text-shadow: var(--neon-glow);
+        }
+        
+        /* Premium Services */
+        .premium-services {
+            padding: 100px 0;
+            position: relative;
+        }
+        
         .section-title {
             text-align: center;
-            margin-bottom: 3.5rem;
-            color: var(--primary-blue);
+            margin-bottom: 70px;
             position: relative;
         }
-
+        
         .section-title h2 {
-            font-size: 2.8rem;
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 900;
+            text-shadow: 0 0 15px rgba(0, 102, 255, 0.3);
+            letter-spacing: 2px;
+            position: relative;
             display: inline-block;
-            padding-bottom: 15px;
-            font-weight: 800;
         }
-
+        
         .section-title h2::after {
             content: '';
             position: absolute;
-            width: 100px;
-            height: 5px;
-            background: var(--secondary-blue);
-            bottom: 0;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            border-radius: 3px;
-            box-shadow: 0 3px 10px rgba(30, 144, 255, 0.4);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+            box-shadow: var(--neon-glow);
         }
-
-        /* About Section */
-        .about-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5rem;
+        
+        .section-title p {
+            font-size: 18px;
+            color: #aaaaaa;
+            max-width: 600px;
+            margin: 30px auto 0;
         }
-
-        .about-img {
-            width: 320px;
-            height: 320px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 10px solid white;
-            box-shadow: 0 15px 40px rgba(10, 61, 98, 0.25);
-            transition: all 0.5s ease;
-            position: relative;
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
         }
-
-        .about-img::before {
-            content: '';
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            right: -15px;
-            bottom: -15px;
-            border-radius: 50%;
-            background: var(--gradient-blue);
-            z-index: -1;
-            opacity: 0.5;
-            animation: rotate 10s linear infinite;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .about-img:hover {
-            transform: scale(1.08) rotate(5deg);
-            box-shadow: 0 20px 50px rgba(10, 61, 98, 0.4);
-        }
-
-        .about-text {
-            max-width: 650px;
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(10, 61, 98, 0.15);
+        
+        .service-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(0, 102, 255, 0.03));
+            border-radius: 25px;
+            padding: 50px 40px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid rgba(0, 102, 255, 0.1);
+            backdrop-filter: blur(15px);
             position: relative;
             overflow: hidden;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
-
-        .about-text::before {
+        
+        .service-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 8px;
-            height: 100%;
-            background: var(--gradient-blue);
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+            box-shadow: var(--neon-glow);
         }
-
-        .about-text h3 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark-blue);
+        
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: linear-gradient(45deg, transparent, rgba(0, 204, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
         }
-
-        .about-text p {
-            font-size: 1.2rem;
-            margin-bottom: 1.8rem;
-            color: #555;
+        
+        .service-card:hover::after {
+            top: 0;
+            left: 0;
         }
-
-        /* Links Section */
-        .links-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
+        
+        .service-card:hover {
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: 0 40px 60px rgba(0, 102, 255, 0.3);
+            border-color: var(--primary);
         }
-
-        .link-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(10, 61, 98, 0.15);
-            transition: all 0.4s ease;
+        
+        .service-icon {
+            width: 90px;
+            height: 90px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 36px;
+            color: white;
+            box-shadow: var(--neon-glow);
             position: relative;
-            border-top: 8px solid var(--secondary-blue);
+            z-index: 2;
+            transition: all 0.3s ease;
         }
-
-        .link-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(10, 61, 98, 0.25);
+        
+        .service-card:hover .service-icon {
+            transform: rotate(360deg) scale(1.1);
+            box-shadow: var(--neon-accent);
         }
-
-        .link-card::before {
+        
+        .service-card h3 {
+            font-size: 28px;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-price {
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--primary);
+            margin: 20px 0;
+            text-shadow: 0 0 10px rgba(0, 102, 255, 0.5);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-features li {
+            margin-bottom: 15px;
+            padding-left: 35px;
+            position: relative;
+            color: #cccccc;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 20px;
+            text-shadow: var(--neon-glow);
+        }
+        
+        /* WhatsApp Channels */
+        .channels-section {
+            padding: 80px 0;
+            background: linear-gradient(to bottom, transparent, rgba(0, 102, 255, 0.05));
+        }
+        
+        .channels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .channel-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(0, 102, 255, 0.05));
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            border: 2px solid rgba(0, 102, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .channel-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 102, 255, 0.2);
+        }
+        
+        .channel-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--gradient-blue);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: 1;
+            background: linear-gradient(45deg, transparent, rgba(0, 204, 255, 0.05), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
         }
-
-        .link-card:hover::before {
-            opacity: 0.1;
+        
+        .channel-card:hover::before {
+            transform: translateX(100%);
         }
-
-        .link-card-content {
-            padding: 2.5rem;
+        
+        .channel-icon {
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-shadow: var(--neon-glow);
+        }
+        
+        /* Premium Contact */
+        .premium-contact {
+            padding: 100px 0;
             text-align: center;
-            position: relative;
-            z-index: 2;
+            background: linear-gradient(to top, transparent, rgba(0, 102, 255, 0.03));
         }
-
-        .link-icon {
-            font-size: 3rem;
-            color: var(--primary-blue);
-            margin-bottom: 1.5rem;
-            background: var(--light-blue);
-            width: 80px;
-            height: 80px;
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .contact-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(0, 102, 255, 0.05));
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(0, 102, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 102, 255, 0.2);
+        }
+        
+        .contact-icon {
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-shadow: var(--neon-glow);
+        }
+        
+        /* Premium Footer */
+        .premium-footer {
+            background: linear-gradient(to top, rgba(10,15,43,0.95), rgba(26,36,86,0.95));
+            padding: 80px 0 30px;
+            border-top: 3px solid var(--primary);
+            position: relative;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: var(--neon-glow);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: #aaaaaa;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            background: rgba(0, 102, 255, 0.05);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(10px);
+            background: rgba(0, 102, 255, 0.1);
+        }
+        
+        .social-media {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 102, 255, 0.1);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            box-shadow: 0 8px 20px rgba(10, 61, 98, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .link-card:hover .link-icon {
-            transform: scale(1.1) rotate(10deg);
-            background: var(--gradient-blue);
-            color: white;
-        }
-
-        .link-card h3 {
-            font-size: 1.7rem;
-            margin-bottom: 1.2rem;
-            color: var(--dark-blue);
-        }
-
-        .link-card p {
-            color: #666;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--gradient-blue);
-            color: white;
-            padding: 14px 35px;
-            border-radius: 50px;
+            color: var(--primary);
             text-decoration: none;
-            font-weight: 700;
-            letter-spacing: 1px;
             transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 8px 20px rgba(30, 144, 255, 0.3);
+            border: 2px solid rgba(0, 102, 255, 0.3);
+            font-size: 20px;
             position: relative;
             overflow: hidden;
         }
-
-        .btn::before {
+        
+        .social-icon::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.7s;
+            background: var(--gradient);
+            transition: left 0.3s ease;
+            z-index: -1;
         }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(30, 144, 255, 0.4);
-        }
-
-        .btn-whatsapp {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
-        }
-
-        .btn-whatsapp:hover {
-            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4);
-        }
-
-        /* Gallery Section (Logo Icons) */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 2rem;
-        }
-
-        .logo-item {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(10, 61, 98, 0.1);
-            transition: all 0.4s ease;
-            height: 180px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .logo-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
+        
+        .social-icon:hover::before {
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-blue);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: 1;
         }
-
-        .logo-item:hover::before {
-            opacity: 0.1;
-        }
-
-        .logo-item:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(10, 61, 98, 0.2);
-        }
-
-        .logo-icon {
-            font-size: 4rem;
-            color: var(--primary-blue);
-            position: relative;
-            z-index: 2;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
-        }
-
-        .logo-item:hover .logo-icon {
-            color: var(--secondary-blue);
-            transform: scale(1.2) rotate(10deg);
-        }
-
-        .logo-item:nth-child(2) .logo-icon { color: #FF6B6B; }
-        .logo-item:nth-child(3) .logo-icon { color: #4ECDC4; }
-        .logo-item:nth-child(4) .logo-icon { color: #FFD166; }
-        .logo-item:nth-child(5) .logo-icon { color: #06D6A0; }
-        .logo-item:nth-child(6) .logo-icon { color: #118AB2; }
-        .logo-item:nth-child(7) .logo-icon { color: #EF476F; }
-        .logo-item:nth-child(8) .logo-icon { color: #073B4C; }
-
-        /* Efek Blue Glow */
-        .blue-glow {
-            position: fixed;
-            pointer-events: none;
-            border-radius: 50%;
-            background: radial-gradient(circle, var(--accent-blue) 0%, transparent 70%);
-            opacity: 0;
-            z-index: 9999;
-            transition: opacity 0.3s, width 0.3s, height 0.3s;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--gradient-dark);
+        
+        .social-icon:hover {
             color: white;
-            padding: 4rem 0 2rem;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--neon-glow);
+            border-color: var(--primary);
+        }
+        
+        .footer-bottom {
             text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #777;
             position: relative;
-            overflow: hidden;
         }
-
-        footer::before {
+        
+        .footer-bottom::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient-blue);
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: var(--gradient);
         }
-
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2.5rem;
-            position: relative;
-            z-index: 2;
+        
+        /* Animations */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 102, 255, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(0, 102, 255, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 102, 255, 0);
+            }
         }
-
-        .social-links {
-            display: flex;
-            gap: 2rem;
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-
-        .social-links a {
-            color: white;
-            font-size: 1.8rem;
-            transition: all 0.3s ease;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-        }
-
-        .social-links a:hover {
-            color: var(--accent-blue);
-            transform: translateY(-8px) scale(1.1);
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .copyright {
-            font-size: 1rem;
-            opacity: 0.8;
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            width: 100%;
-        }
-
-        /* Responsif */
+        
+        /* Responsive */
         @media (max-width: 992px) {
-            .about-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 3rem;
-            }
-
-            .banner h1 {
-                font-size: 3rem;
-            }
-
-            .section-title h2 {
-                font-size: 2.4rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                background: var(--primary-blue);
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                padding: 1.5rem 0;
-                display: none;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-                border-top: 2px solid var(--accent-blue);
-            }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            nav ul li {
-                margin: 0;
-                text-align: center;
-                padding: 1rem 0;
-            }
-
-            .menu-toggle {
-                display: block;
-                font-size: 1.8rem;
-                cursor: pointer;
-                background: rgba(255, 255, 255, 0.1);
-                width: 50px;
-                height: 50px;
-                border-radius: 10px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .banner {
-                height: 400px;
-            }
-
-            .banner h1 {
-                font-size: 2.5rem;
-            }
-
-            .banner p {
-                font-size: 1.2rem;
+            .hero-title {
+                font-size: 64px;
             }
             
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .channels-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 15, 43, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 20px;
+                border-top: 2px solid var(--primary);
+                display: none;
+                gap: 10px;
+                z-index: 1000;
+            }
+            
+            .nav-links.show {
+                display: flex;
+            }
+            
+            .hero-title {
+                font-size: 48px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .section-title h2 {
+                font-size: 36px;
+            }
+            
+            .price-tag {
+                font-size: 24px;
+                padding: 12px 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .price-tag {
+                font-size: 20px;
+                padding: 10px 25px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .logo-text {
+                font-size: 24px;
+            }
+            
+            .logo-pfp {
+                width: 50px;
+                height: 50px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Efek Blue Glow -->
-    <div id="blueGlow" class="blue-glow"></div>
+    <!-- Blue Glow Up Effect -->
+    <div class="glow-effect"></div>
 
-    <!-- Header -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <img src="https://i.imgur.com/ESTxUG0.jpeg" alt="prince.ryuu" class="logo-img">
-                <div class="logo-text">prince.<span>ryuu</span></div>
-            </div>
+    <!-- Premium Header -->
+    <header class="premium-header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="https://i.imgur.com/ESTxUG0.jpeg" alt="Ryuu.Logos" class="logo-pfp">
+                <div class="logo-text">RYUU.LOGOS</div>
+            </a>
             
-            <div class="menu-toggle" id="menuToggle">
+            <button class="mobile-menu">
                 <i class="fas fa-bars"></i>
-            </div>
+            </button>
             
-            <nav>
-                <ul id="navMenu">
-                    <li><a href="#home">Beranda</a></li>
-                    <li><a href="#about">Tentang</a></li>
-                    <li><a href="#links">Kontak</a></li>
-                    <li><a href="#gallery">Karya</a></li>
-                </ul>
-            </nav>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#channels">Channels</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            
+            <a href="https://wa.me/6285135412495" class="cta-button" target="_blank">
+                <i class="fab fa-whatsapp"></i> Order Sekarang
+            </a>
         </div>
     </header>
 
-    <!-- Banner -->
-    <section id="home" class="banner">
-        <div class="banner-content">
-            <h1>prince.ryuu</h1>
-            <p>Logo & Brand Identity Specialist</p>
-            <a href="https://wa.me/6285135412495" target="_blank" class="btn btn-whatsapp">
-                <i class="fab fa-whatsapp"></i> Konsultasi Desain
+    <!-- Premium Hero Section -->
+    <section class="premium-hero" id="home">
+        <div class="hero-background"></div>
+        <div class="hero-particles" id="particles"></div>
+        
+        <div class="container hero-content">
+            <h1 class="hero-title">DESIGN GFX MURAH</h1>
+            <p class="hero-subtitle">Logo, Banner, QRIS, dan berbagai desain kreatif dengan kualitas premium dan harga terjangkau</p>
+            
+            <div class="price-tag">
+                MULAI DARI Rp 6.000
+            </div>
+            
+            <div class="hero-features">
+                <div class="feature-item">
+                    <i class="fas fa-bolt"></i>
+                    <span>Proses Cepat 24/7</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-star"></i>
+                    <span>Kualitas Premium</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Garansi Revisi</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-headset"></i>
+                    <span>Support 24 Jam</span>
+                </div>
+            </div>
+            
+            <a href="#services" class="cta-button" style="margin-top: 40px;">
+                Lihat Layanan Lengkap
             </a>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
+    <!-- Premium Services -->
+    <section class="premium-services" id="services">
         <div class="container">
             <div class="section-title">
-                <h2>Tentang Saya</h2>
+                <h2>LAYANAN KAMI</h2>
+                <p>Solusi desain grafis lengkap untuk kebutuhan bisnis Anda dengan harga terjangkau</p>
             </div>
-            <div class="about-content">
-                <img src="https://i.imgur.com/ESTxUG0.jpeg" alt="prince.ryuu" class="about-img">
-                <div class="about-text">
-                    <h3>Halo, Saya prince.ryuu</h3>
-                    <p>Spesialis desain logo dengan pengalaman menciptakan identitas merek yang kuat dan berkesan. Filosofi desain saya berfokus pada kesederhanaan, makna, dan dampak visual.</p>
-                    <p>Saya mengkhususkan diri dalam desain minimalis, tipografi eksperimental, dan psikologi warna untuk menciptakan logo yang tidak hanya menarik secara visual tetapi juga menyampaikan esensi merek dengan tepat.</p>
-                    <a href="https://wa.me/6285135412495" target="_blank" class="btn btn-whatsapp">
-                        <i class="fab fa-whatsapp"></i> Pesan Desain Sekarang
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h3>Desain QRIS Kustom</h3>
+                    <p>QRIS dengan desain elegan dan profesional yang sesuai dengan identitas brand Anda</p>
+                    <div class="service-price">Rp 6.000</div>
+                    <ul class="service-features">
+                        <li>Desain sesuai brand identity</li>
+                        <li>File HQ PNG & SVG</li>
+                        <li>Revisi 3x</li>
+                        <li>Pengerjaan 24 jam</li>
+                        <li>Format semua platform</li>
+                    </ul>
+                    <a href="https://wa.me/6285135412495?text=Saya%20mau%20pesan%20Desain%20QRIS" class="cta-button" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <h3>Banner YouTube Premium</h3>
+                    <p>Thumbnail dan banner channel YouTube yang eye-catching untuk meningkatkan CTR</p>
+                    <div class="service-price">Rp 8.000</div>
+                    <ul class="service-features">
+                        <li>Thumbnail HD 1280x720</li>
+                        <li>Banner channel 2560x1440</li>
+                        <li>Style sesuai niche</li>
+                        <li>Revisi sampai puas</li>
+                        <li>Efek menarik</li>
+                    </ul>
+                    <a href="https://wa.me/6285135412495?text=Saya%20mau%20pesan%20Banner%20YouTube" class="cta-button" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Desain Profile Social Media</h3>
+                    <p>Foto profil profesional untuk WhatsApp, Instagram, Facebook, dan platform lainnya</p>
+                    <div class="service-price">Rp 7.000</div>
+                    <ul class="service-features">
+                        <li>Ukuran sesuai platform</li>
+                        <li>Format PNG & JPG</li>
+                        <li>Desain modern & clean</li>
+                        <li>Revisi 2x</li>
+                        <li>Ready untuk semua media</li>
+                    </ul>
+                    <a href="https://wa.me/6285135412495?text=Saya%20mau%20pesan%20Desain%20Profile" class="cta-button" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Links Section -->
-    <section id="links">
+    <!-- WhatsApp Channels -->
+    <section class="channels-section" id="channels">
         <div class="container">
             <div class="section-title">
-                <h2>Hubungi Saya</h2>
+                <h2>WHATSAPP CHANNELS</h2>
+                <p>Ikuti channels kami untuk melihat hasil karya dan testimoni</p>
             </div>
-            <div class="links-grid">
-                <!-- Link WhatsApp -->
-                <div class="link-card">
-                    <div class="link-card-content">
-                        <div class="link-icon">
+            
+            <div class="channels-grid">
+                <div class="channel-card">
+                    <div class="channel-icon">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <h3>Result Design</h3>
+                    <p>Lihat hasil karya desain yang sudah kami kerjakan untuk berbagai klien</p>
+                    <a href="https://whatsapp.com/channel/0029VarGyuFHwXbA7ZQ9Ig2T" class="cta-button" target="_blank" style="margin-top: 20px;">
+                        <i class="fab fa-whatsapp"></i> Join Channel
+                    </a>
+                </div>
+                
+                <div class="channel-card">
+                    <div class="channel-icon">
+                        <i class="fas fa-comment-alt"></i>
+                    </div>
+                    <h3>Testimoni Klien</h3>
+                    <p>Baca pengalaman klien yang puas dengan hasil desain dari kami</p>
+                    <a href="https://whatsapp.com/channel/0029Vb5nEST0G0Xbx1kdg03O" class="cta-button" target="_blank" style="margin-top: 20px;">
+                        <i class="fab fa-whatsapp"></i> Join Channel
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Contact -->
+    <section class="premium-contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>HUBUNGI KAMI</h2>
+                <p>Siap membantu kebutuhan desain Anda 24/7</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp</h3>
+                    <p>+62 851-3541-2495</p>
+                    <a href="https://wa.me/6285135412495" class="cta-button" target="_blank" style="margin-top: 20px;">
+                        <i class="fab fa-whatsapp"></i> Chat Sekarang
+                    </a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Portofolio</h3>
+                    <p>Lihat karya-karya terbaik kami</p>
+                    <a href="https://whatsapp.com/channel/0029VarGyuFHwXbA7ZQ9Ig2T" class="cta-button" target="_blank" style="margin-top: 20px;">
+                        <i class="fas fa-images"></i> Lihat Hasil
+                    </a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Jam Operasional</h3>
+                    <p>24/7 Non-Stop</p>
+                    <div class="cta-button" style="margin-top: 20px; background: rgba(0, 102, 255, 0.3);">
+                        <i class="fas fa-bolt"></i> Buka Setiap Hari
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Footer -->
+    <footer class="premium-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>RYUU.LOGOS</h3>
+                    <p>Jasa design GFX murah dengan kualitas premium. Layanan cepat, hasil maksimal.</p>
+                    <div class="social-media">
+                        <a href="https://wa.me/6285135412495" class="social-icon" target="_blank">
                             <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <h3>WhatsApp</h3>
-                        <p>Hubungi saya langsung melalui WhatsApp untuk konsultasi desain logo, tanya harga, atau diskusi proyek.</p>
-                        <a href="https://wa.me/6285135412495" target="_blank" class="btn btn-whatsapp">
-                            <i class="fab fa-whatsapp"></i> Chat Sekarang
+                        </a>
+                        <a href="https://www.tiktok.com/@wbannxx" class="social-icon" target="_blank">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://instagram.com/ryuubann.design" class="social-icon" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://whatsapp.com/channel/0029VarGyuFHwXbA7ZQ9Ig2T" class="social-icon" target="_blank">
+                            <i class="fas fa-images"></i>
                         </a>
                     </div>
                 </div>
                 
-                <!-- Link Hasil Logo -->
-                <div class="link-card">
-                    <div class="link-card-content">
-                        <div class="link-icon">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <h3>Hasil Desain</h3>
-                        <p>Lihat hasil karya desain logo yang telah saya selesaikan untuk berbagai klien dari berbagai industri.</p>
-                        <a href="https://whatsapp.com/channel/0029VarGyuFHwXbA7ZQ9Ig2T" target="_blank" class="btn">
-                            <i class="fab fa-whatsapp"></i> Channel Hasil
-                        </a>
-                    </div>
+                <div class="footer-column">
+                    <h3>Layanan</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Desain QRIS</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Banner YouTube</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Desain Profile</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Logo Custom</a></li>
+                    </ul>
                 </div>
                 
-                <!-- Link Testimoni -->
-                <div class="link-card">
-                    <div class="link-card-content">
-                        <div class="link-icon">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h3>Testimoni Klien</h3>
-                        <p>Baca pengalaman klien yang telah menggunakan jasa desain logo saya dan hasil yang mereka dapatkan.</p>
-                        <a href="https://whatsapp.com/channel/0029Vb5nEST0G0Xbx1kdg03O" target="_blank" class="btn">
-                            <i class="fab fa-whatsapp"></i> Channel Testimoni
-                        </a>
-                    </div>
+                <div class="footer-column">
+                    <h3>Harga Terjangkau</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-check"></i> QRIS: Rp 6.000</a></li>
+                        <li><a href="#"><i class="fas fa-check"></i> Banner: Rp 8.000</a></li>
+                        <li><a href="#"><i class="fas fa-check"></i> Profile: Rp 7.000</a></li>
+                        <li><a href="#"><i class="fas fa-check"></i> Paket Hemat</a></li>
+                    </ul>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery">
-        <div class="container">
-            <div class="section-title">
-                <h2>Koleksi Logo</h2>
-            </div>
-            <div class="gallery-grid">
-                <!-- Logo Icons -->
-                <div class="logo-item">
-                    <i class="fas fa-crown logo-icon"></i>
+                
+                <div class="footer-column">
+                    <h3>Channels</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://whatsapp.com/channel/0029VarGyuFHwXbA7ZQ9Ig2T" target="_blank"><i class="fas fa-arrow-right"></i> Result Design</a></li>
+                        <li><a href="https://whatsapp.com/channel/0029Vb5nEST0G0Xbx1kdg03O" target="_blank"><i class="fas fa-arrow-right"></i> Testimoni Klien</a></li>
+                    </ul>
                 </div>
-                <div class="logo-item">
-                    <i class="fas fa-dragon logo-icon"></i>
-                </div>
-                <div class="logo-item">
-                    <i class="fas fa-feather-alt logo-icon"></i>
-                </div>
-                <div class="logo-item">
-                    <i class="fas fa-mountain logo-icon"></i>
-                </div>
-                <div class="logo-item">
-                    <i class="fas fa-infinity logo-icon"></i>
-                </div>
-                <div class="logo-item">
-                    <i class="fas fa-compass logo-icon"></i>
-                </div>
-                <div class="logo-item">
-                    <i class="fas fa-wind logo-icon"></i>
-                </div>
-                <div class="logo-item">
-                    <i class="fas fa-gem logo-icon"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container footer-content">
-            <div class="logo">
-                <img src="https://i.imgur.com/ESTxUG0.jpeg" alt="prince.ryuu" class="logo-img" style="width: 70px; height: 70px;">
-                <div class="logo-text" style="font-size: 2.2rem;">prince.<span>ryuu</span></div>
             </div>
             
-            <div class="social-links">
-                <a href="https://wa.me/6285135412495" target="_blank" title="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="https://instagram.com/ryuubann.design" target="_blank" title="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://tiktok.com/@wbannxx" target="_blank" title="TikTok">
-                    <i class="fab fa-tiktok"></i>
-                </a>
-                <a href="https://whatsapp.com/channel/0029VarGyuFHwXbA7ZQ9Ig2T" target="_blank" title="Channel Hasil">
-                    <i class="fas fa-palette"></i>
-                </a>
+            <div class="footer-bottom">
+                <p>&copy; 2023 RYUU.LOGOS - Design GFX Murah. All rights reserved. | Designed with passion by Ryuubann</p>
             </div>
-            
-            <p class="copyright">&copy; 2023 prince.ryuu. All rights reserved. | Logo & Brand Identity Design</p>
         </div>
     </footer>
 
     <script>
-        // Menu Toggle untuk Mobile
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
-        
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            menuToggle.innerHTML = navMenu.classList.contains('active') 
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('show');
+            this.innerHTML = document.querySelector('.nav-links').classList.contains('show') 
                 ? '<i class="fas fa-times"></i>' 
                 : '<i class="fas fa-bars"></i>';
         });
         
-        // Tutup menu saat klik di luar
-        document.addEventListener('click', (e) => {
-            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-                navMenu.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('.nav-links');
+            const menuBtn = document.querySelector('.mobile-menu');
+            if (!nav.contains(event.target) && !menuBtn.contains(event.target) && nav.classList.contains('show')) {
+                nav.classList.remove('show');
+                menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             }
         });
         
-        // Efek Blue Glow
-        const blueGlow = document.getElementById('blueGlow');
-        let glowSize = 150;
-        
-        document.addEventListener('mousemove', (e) => {
-            blueGlow.style.left = e.pageX - glowSize/2 + 'px';
-            blueGlow.style.top = e.pageY - glowSize/2 + 'px';
-            blueGlow.style.width = glowSize + 'px';
-            blueGlow.style.height = glowSize + 'px';
-            blueGlow.style.opacity = '0.6';
-            
-            setTimeout(() => {
-                blueGlow.style.opacity = '0';
-            }, 150);
-        });
-        
-        // Ubah ukuran glow berdasarkan kecepatan mouse
-        let lastX = 0, lastY = 0;
-        document.addEventListener('mousemove', (e) => {
-            const speed = Math.sqrt(Math.pow(e.pageX - lastX, 2) + Math.pow(e.pageY - lastY, 2));
-            glowSize = Math.min(200, Math.max(100, 150 + speed/5));
-            lastX = e.pageX;
-            lastY = e.pageY;
-        });
-        
-        // Smooth Scrolling untuk Navigasi
-        document.querySelectorAll('nav a, .btn[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                if(this.getAttribute('href').startsWith('#')) {
-                    e.preventDefault();
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
                     
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if(targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Tutup menu mobile jika terbuka
-                        if(navMenu.classList.contains('active')) {
-                            navMenu.classList.remove('active');
-                            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                        }
-                    }
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('show');
+                    document.querySelector('.mobile-menu').innerHTML = '<i class="fas fa-bars"></i>';
                 }
             });
         });
         
-        // Efek Scroll untuk Header
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if(window.scrollY > 100) {
-                header.style.padding = '0.7rem 0';
-                header.style.boxShadow = '0 4px 20px rgba(10, 61, 98, 0.4)';
+        // Header Scroll Effect
+        let lastScroll = 0;
+        const header = document.querySelector('.premium-header');
+        
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                if (currentScroll > lastScroll && currentScroll > 200) {
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    header.style.transform = 'translateY(0)';
+                }
             } else {
-                header.style.padding = '1rem 0';
-                header.style.boxShadow = '0 4px 20px rgba(10, 61, 98, 0.3)';
+                header.style.transform = 'translateY(0)';
             }
+            
+            // Add shadow on scroll
+            if (currentScroll > 50) {
+                header.style.boxShadow = '0 5px 30px rgba(0, 102, 255, 0.3)';
+            } else {
+                header.style.boxShadow = '0 5px 30px rgba(0, 102, 255, 0.2)';
+            }
+            
+            lastScroll = currentScroll;
         });
         
-        // Animasi saat scroll
+        // Add hover effects to cards
+        document.querySelectorAll('.service-card, .channel-card, .contact-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.zIndex = '10';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
+            });
+        });
+        
+        // Add animation on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -921,20 +1231,35 @@
         
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
                 }
             });
         }, observerOptions);
         
-        // Terapkan animasi pada elemen
-        document.querySelectorAll('.link-card, .logo-item, .about-content').forEach(el => {
+        // Observe elements
+        document.querySelectorAll('.service-card, .channel-card, .contact-card, .section-title').forEach(el => {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
+        
+        // Simple particle effect for hero section
+        const particlesContainer = document.getElementById('particles');
+        if (particlesContainer) {
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = Math.random() * 5 + 1 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.background = 'rgba(0, 204, 255, 0.5)';
+                particle.style.borderRadius = '50%';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.boxShadow = '0 0 10px rgba(0, 204, 255, 0.5)';
+                particle.style.animation = `float ${Math.random() * 10 + 10}s linear infinite`;
+                particlesContainer.appendChild(particle);
+            }
+        }
     </script>
 </body>
-</html>
+    </html>
